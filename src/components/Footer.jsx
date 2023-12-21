@@ -1,24 +1,36 @@
 import React from "react";
 import { useState } from "react";
 
-const Header = () => {
+const Footer = () => {
   const [status, setStatus] = useState(false);
   const [language, setLanguage] = useState("English");
-
   return (
-    <div className="absolute mx-32 h-1/6 w-3/4 flex justify-between items-center">
-      <div className="h-4/5">
-        <img
-          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-          alt="logo"
-          className="h-full"
-        />
-      </div>
-      <div className="flex gap-8">
-        <div class="relative inline-block text-left">
+    <div className="bg-black flex justify-center w-screen text-white items-center py-10">
+      <div className="w-3/4 flex flex-col items-center">
+        <p className="text-lg text-start w-full">
+          Questions? Call 000-800-919-1694
+        </p>
+        <div className="grid grid-cols-4 gap-4 w-full my-4">
+          <p className="underline">FAQ</p>
+          <p className="underline">Help Centre</p>
+          <p className="underline">Account</p>
+          <p className="underline">Media Centre</p>
+          <p className="underline">Investor Relations</p>
+          <p className="underline">Jobs</p>
+          <p className="underline">Ways to Watch</p>
+          <p className="underline">Terms of Use</p>
+          <p className="underline">Privacy</p>
+          <p className="underline">Cookie Preferences</p>
+          <p className="underline">Corporate Information</p>
+          <p className="underline">Contact Us</p>
+          <p className="underline">Speed Test</p>
+          <p className="underline">Legal Notices</p>
+          <p className="underline">Only on Netflix</p>
+        </div>
+        <div className="w-full flex  my-4 justify-start">
           <button
             type="button"
-            class="flex gap-3 items-center px-6 border border-white py-1 w-36 bg-black/50 rounded-md font-medium text-white"
+            class="flex gap-3 items-center px-6 border-4 border-white py-1 w-36 bg-black/50 rounded-md font-medium text-white absolute"
             onClick={() => {
               status ? setStatus(false) : setStatus(true);
             }}
@@ -60,7 +72,7 @@ const Header = () => {
             </svg>
           </button>
           {status ? (
-            <div class="origin-top-right absolute right-0 w-full bg-white">
+            <div class="w-36 relative top-8 bg-white">
               <div
                 class="py-1"
                 role="menu"
@@ -72,7 +84,7 @@ const Header = () => {
                     setLanguage("English");
                     setStatus(false);
                   }}
-                  class=" h-1/2 block px-4 w-full py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+                  class=" h-1/2 w-full block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
                   role="menuitem"
                 >
                   English
@@ -82,7 +94,7 @@ const Header = () => {
                     setLanguage("Hindi");
                     setStatus(false);
                   }}
-                  class=" h-1/2  block px-4 py-2 w-full text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+                  class=" h-1/2  block px-4 w-full py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
                   role="menuitem"
                 >
                   Hindi
@@ -93,12 +105,9 @@ const Header = () => {
             <></>
           )}
         </div>
-        <button className="px-3 py-2 bg-red-600 text-white font-bold rounded-md text-sm hover:bg-red-700">
-          Sign Out
-        </button>
       </div>
     </div>
   );
 };
 
-export default Header;
+export default Footer;
