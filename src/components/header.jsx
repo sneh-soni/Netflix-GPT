@@ -6,7 +6,7 @@ const Header = () => {
   const [language, setLanguage] = useState("English");
 
   return (
-    <div className="absolute mx-32 h-1/6 w-3/4 flex justify-between items-center">
+    <div className="absolute z-10 px-28 h-1/6 w-full flex justify-between items-center bg-gradient-to-b from-black">
       <div className="h-4/5">
         <img
           src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
