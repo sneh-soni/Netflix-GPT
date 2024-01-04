@@ -3,7 +3,7 @@ import { useState, useRef } from "react";
 import { Validate } from "../utils/Validate";
 
 const LoginForm = () => {
-  const [signIn, setSignIn] = useState(true);
+  const [signIn, setSignIn] = useState(false);
   const [errMessage, setErrMessage] = useState(null);
 
   const email = useRef(null);
@@ -49,16 +49,26 @@ const LoginForm = () => {
       <p className="my-8" onClick={() => setSignIn(!signIn)}>
         {signIn ? (
           <span>
-            New to Netflix ?{" "}
-            <span className="font-semibold cursor-pointer underline">
+            New to Netflix?
+            <span
+              onClick={() => {
+                setErrMessage(null);
+              }}
+              className="font-semibold mx-1 cursor-pointer underline"
+            >
               Sign Up
-            </span>{" "}
+            </span>
             now
           </span>
         ) : (
           <span>
-            Already registered ?{" "}
-            <span className="font-semibold cursor-pointer underline">
+            Already registered?
+            <span
+              onClick={() => {
+                setErrMessage(null);
+              }}
+              className="font-semibold mx-1 cursor-pointer underline"
+            >
               Sign In
             </span>
           </span>
