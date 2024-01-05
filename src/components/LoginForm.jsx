@@ -1,6 +1,11 @@
 import React from "react";
 import { useState, useRef } from "react";
+import { auth } from "../utils/firebase";
 import { Validate } from "../utils/Validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const LoginForm = () => {
   const [signIn, setSignIn] = useState(false);
@@ -11,7 +16,7 @@ const LoginForm = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className="absolute bg-black bg-opacity-80 p-8 w-3/12 my-44 mx-auto right-0 left-0 text-sm text-white"
+      className="absolute bg-black bg-opacity-80 p-8 w-3/12 my-32 mx-auto right-0 left-0 text-sm text-white"
     >
       <p className="text-3xl my-2">{signIn ? "Sign In" : "Sign Up"}</p>
       {!signIn && (
@@ -42,6 +47,38 @@ const LoginForm = () => {
         onClick={() => {
           const message = Validate(email.current.value, password.current.value);
           setErrMessage(message);
+          if (message) return;
+          if (!signIn) {
+            createUserWithEmailAndPassword(
+              auth,
+              email.current.value,
+              password.current.value
+            )
+              .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setErrMessage(errorCode + " " + errorMessage);
+              });
+          } else {
+            signInWithEmailAndPassword(
+              auth,
+              email.current.value,
+              password.current.value
+            )
+              .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setErrMessage(errorCode + " " + errorMessage);
+              });
+          }
         }}
       >
         {signIn ? "Sign In" : "Sign Up"}
