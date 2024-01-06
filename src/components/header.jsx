@@ -1,10 +1,15 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Header = () => {
   const [status, setStatus] = useState(false);
   const [language, setLanguage] = useState("English");
+  const navigate = useNavigate();
+  const { id } = useParams();
+  console.log(id);
 
   return (
     <div className="absolute z-10 px-28 h-1/6 w-full flex justify-between items-center bg-gradient-to-b from-black">
@@ -17,6 +22,7 @@ const Header = () => {
           />
         </Link>
       </div>
+
       <div className="flex gap-8">
         <div className="relative inline-block text-left">
           <button
@@ -96,7 +102,18 @@ const Header = () => {
             <></>
           )}
         </div>
-        <button className="px-3 py-2 bg-red-600 text-white font-bold rounded-md text-sm hover:bg-red-700">
+        <button
+          onClick={() => {
+            signOut(auth)
+              .then(() => {
+                navigate("/");
+              })
+              .catch((error) => {
+                navigate("/error");
+              });
+          }}
+          className="px-3 py-2 bg-red-600 text-white font-bold rounded-md text-sm hover:bg-red-700"
+        >
           Sign Out
         </button>
       </div>

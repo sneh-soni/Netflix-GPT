@@ -1,4 +1,10 @@
 {
   "audioCues.lineHasError": "off",
-  "debug.javascript.breakOnConditionalError": true
+  "debug.javascript.breakOnConditionalError": true,
+  "audioCues.lineHasInlineSuggestion": "off",
+  "audioCues.notebookCellFailed": "off",
+  "audioCues.onDebugBreak": "off",
+  "audioCues.taskFailed": "off",
+  "audioCues.terminalCommandFailed": "off",
+  "audioCues.terminalQuickFix": "off"
 }
