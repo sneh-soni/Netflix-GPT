@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./Header";
 import FAQ from "./FAQ";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
 
 const Home = () => {
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(
+  //     addUser({
+  //       displayName: "DummyName",
+  //       photoURL: "DummyURL",
+  //     })
+  //   );
+  //   return () => dispatch(removeUser());
+  // }, []);
+
   return (
     <div className="flex flex-col items-center ">
       <Header />

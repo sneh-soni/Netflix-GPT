@@ -1,25 +1,50 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
+import { logo } from "../utils/constants";
 
 const Header = () => {
   const [status, setStatus] = useState(false);
   const [language, setLanguage] = useState("English");
+  const user = useSelector((store) => store.user);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { id } = useParams();
-  console.log(id);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/login");
+        // if (window.location.pathname == "/login") {
+        //   navigate("/");
+        // } else {
+        //   navigate("/login");
+        // }
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
   return (
     <div className="absolute z-10 px-28 h-1/6 w-full flex justify-between items-center bg-gradient-to-b from-black">
       <div className="h-4/5">
         <Link to={"/"}>
-          <img
-            src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-            alt="logo"
-            className="h-full"
-          />
+          <img src={logo} alt="logo" className="h-full" />
         </Link>
       </div>
 
@@ -105,9 +130,7 @@ const Header = () => {
         <button
           onClick={() => {
             signOut(auth)
-              .then(() => {
-                navigate("/");
-              })
+              .then(() => {})
               .catch((error) => {
                 navigate("/error");
               });
@@ -116,6 +139,15 @@ const Header = () => {
         >
           Sign Out
         </button>
+        {user && (
+          <div>
+            <img
+              src={user.photoURL}
+              alt="profile photo"
+              className="h-10 w-10 rounded-full"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
