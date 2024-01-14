@@ -12,3 +12,5 @@ export const options = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MzA4N2ZmNWQwYjk5YWQ1NGY2NWI5Y2MyZDQ1NTcyZCIsInN1YiI6IjY1YTI3NzZiODU4Njc4MDEyNTViOTExZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bDSTeRMKZ7eRaU-z7ZIGmSx7yw9q4DM420P7n1BN5V0",
   },
 };
+
+export const IMG_CDN = "https://image.tmdb.org/t/p/w250/";
