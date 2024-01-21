@@ -30,11 +30,6 @@ const Header = () => {
       } else {
         dispatch(removeUser());
         navigate("/login");
-        // if (window.location.pathname == "/login") {
-        //   navigate("/");
-        // } else {
-        //   navigate("/login");
-        // }
       }
     });
     return () => unsubscribe();
