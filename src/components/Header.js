@@ -6,6 +6,7 @@ import { auth } from "../utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { logo } from "../utils/constants";
+import { toggleGPT } from "../utils/gptSlice";
 
 const Header = () => {
   const [status, setStatus] = useState(false);
@@ -135,7 +136,15 @@ const Header = () => {
           Sign Out
         </button>
         {user && (
-          <div>
+          <div className="flex gap-4">
+            <button
+              className="px-4 py-2 bg-red-600 hover:bg-red-800 text-white font-semibold rounded-xl"
+              onClick={() => {
+                dispatch(toggleGPT());
+              }}
+            >
+              GPT Search
+            </button>
             <img
               src={user.photoURL}
               alt="profile photo"
