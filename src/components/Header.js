@@ -37,7 +37,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute z-10 px-28 h-1/6 w-full flex justify-between items-center bg-gradient-to-b from-black">
+    <div className="absolute z-40 px-28 h-1/6 w-full flex justify-between items-center bg-gradient-to-b from-black">
       <div className="h-4/5">
         <Link to={"/"}>
           <img src={logo} alt="logo" className="h-full" />

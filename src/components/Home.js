@@ -3,15 +3,13 @@ import Header from "./Header";
 import FAQ from "./FAQ";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
+import { BG_URL } from "../utils/constants";
 
 const Home = () => {
   return (
     <div className="flex flex-col items-center ">
       <Header />
-      <img
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/ca6a7616-0acb-4bc5-be25-c4deef0419a7/c5af601a-6657-4531-8f82-22e629a3795e/IN-en-20231211-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-        alt="background"
-      />
+      <img src={BG_URL} alt="background" />
       <div className="flex flex-col gap-4 absolute top-1/3 w-3/4 my-10 text-white ">
         <div className="flex justify-center text-2xl">Welcome back!</div>
         <div className="flex justify-center text-5xl text-center font-extrabold">

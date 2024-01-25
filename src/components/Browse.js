@@ -18,11 +18,16 @@ const Browse = () => {
   useUpcomingMovies();
 
   return (
-    <div>
+    <div className="">
       <Header />
-      {showGPT ? <GptSearch /> : <></>}
-      <MainContainer />
-      <SecondaryContainer />
+      {showGPT ? (
+        <GptSearch />
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
     </div>
   );
 };
