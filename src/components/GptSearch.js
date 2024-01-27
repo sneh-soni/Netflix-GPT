@@ -6,7 +6,7 @@ import { BG_URL } from "../utils/constants";
 const GptSearch = () => {
   return (
     <div className="relative">
-      <img src={BG_URL} alt="background" />
+      <img src={BG_URL} alt="background" className="w-screen" />
       <div className="pt-[10%] w-screen absolute top-0 z-20">
         <GptSearchBar />
         <GptMovies />

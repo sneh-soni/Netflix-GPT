@@ -3,7 +3,7 @@ import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movies }) => {
   return (
-    <div className="px-4 py-2">
+    <div className="px-2 py-2 w-screen">
       <h1 className="text-xl font-semibold mb-2 text-white">{title}</h1>
       {movies && (
         <div className="flex overflow-x-scroll overflow-y-hidden">
