@@ -28,3 +28,5 @@ export const Languages = [
     id: "hindi",
   },
 ];
+
+export const OPENAI_KEY = "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";

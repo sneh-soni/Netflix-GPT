@@ -11,6 +11,7 @@ import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const user = useSelector((store) => store.user);
+  const showGPT = useSelector((store) => store.gpt.showGPT);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -44,21 +45,22 @@ const Header = () => {
       </div>
 
       <div className="flex gap-8">
-        <div className="flex items-center">
-          <select
-            className="px-4 py-1 rounded-lg bg-black bg-opacity-50 mx-2 text-white border border-white"
-            onChange={(e) => {
-              dispatch(changeLanguage(e.target.value));
-            }}
-          >
-            {Languages.map((language) => (
-              <option key={language.id} value={language.name}>
-                {language.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
+        {showGPT && (
+          <div className="flex items-center">
+            <select
+              className="px-4 py-1 rounded-lg bg-black bg-opacity-50 mx-2 text-white border border-white"
+              onChange={(e) => {
+                dispatch(changeLanguage(e.target.value));
+              }}
+            >
+              {Languages.map((language) => (
+                <option key={language.id} value={language.id}>
+                  {language.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
         <button
           onClick={() => {
             signOut(auth)
@@ -79,8 +81,9 @@ const Header = () => {
                 dispatch(toggleGPT());
               }}
             >
-              GPT Search
+              {showGPT ? "Browse" : "Gpt Search"}
             </button>
+
             <img
               src={user.photoURL}
               alt="profile photo"
