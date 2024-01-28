@@ -7,8 +7,8 @@ import { BG_URL } from "../utils/constants";
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center ">
-      <Header />
+    <div className="flex flex-col items-center overflow-hidden ">
+      {/* <div>header</div> */}
       <img src={BG_URL} alt="background" />
       <div className="flex flex-col gap-4 absolute top-1/3 w-3/4 my-10 text-white ">
         <div className="flex justify-center text-2xl">Welcome back!</div>
