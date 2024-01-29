@@ -5,9 +5,9 @@ const MovieCard = ({ poster_path, original_title }) => {
   if (!poster_path) return null;
 
   return (
-    <div className="flex flex-col group">
+    <div className="flex flex-col hover:scale-125 transition-all ease-in-out hover:cursor-pointer">
       <div className="w-36 h-52 flex justify-center items-center">
-        <div className="w-28 h-40 hover:scale-125 transition-all ease-in-out hover:cursor-pointer">
+        <div className="w-28 h-40">
           <img
             alt="movie card"
             src={IMG_CDN + poster_path}
@@ -15,9 +15,7 @@ const MovieCard = ({ poster_path, original_title }) => {
           />
         </div>
       </div>
-      <div className="text-white text-sm text-center group-hover:text-lg">
-        {original_title}
-      </div>
+      <div className="text-white text-center">{original_title}</div>
     </div>
   );
 };

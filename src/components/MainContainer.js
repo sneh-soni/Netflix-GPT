@@ -14,7 +14,7 @@ const MainContainer = () => {
     <div className="w-screen relative">
       <VideoTitle title={original_title} overview={overview} />
       <BackgroundVideo movieId={id} />
-      <div className="absolute -bottom-12">
+      <div className="absolute -bottom-6 lg:-bottom-12">
         <MovieList title={"Now Playing"} movies={movies} />
       </div>
     </div>

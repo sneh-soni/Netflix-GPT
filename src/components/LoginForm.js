@@ -23,7 +23,7 @@ const LoginForm = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className="absolute bg-black bg-opacity-80 p-8 w-3/12 my-32 mx-auto right-0 left-0 text-sm text-white"
+      className="absolute bg-black bg-opacity-80 p-8 lg:w-3/12 my-56 lg:my-32 mx-auto right-0 left-0 text-sm text-white"
     >
       <p className="text-3xl my-2">{signIn ? "Sign In" : "Sign Up"}</p>
       {!signIn && (
@@ -51,7 +51,7 @@ const LoginForm = () => {
       />
       <p className="text-red-600 text-sm font-semibold py-2">{errMessage}</p>
       <button
-        className="p-2 my-6 w-full bg-red-600 rounded-sm"
+        className="p-2 my-6 text-lg w-full bg-red-600 rounded-sm"
         onClick={() => {
           const message = Validate(email.current.value, password.current.value);
           setErrMessage(message);
@@ -106,7 +106,7 @@ const LoginForm = () => {
       >
         {signIn ? "Sign In" : "Sign Up"}
       </button>
-      <p className="my-8" onClick={() => setSignIn(!signIn)}>
+      <p className="my-4" onClick={() => setSignIn(!signIn)}>
         {signIn ? (
           <span>
             New to Netflix?
@@ -114,7 +114,7 @@ const LoginForm = () => {
               onClick={() => {
                 setErrMessage(null);
               }}
-              className="font-semibold mx-1 cursor-pointer underline"
+              className="font-semibold mx-2 cursor-pointer underline"
             >
               Sign Up
             </span>
@@ -127,7 +127,7 @@ const LoginForm = () => {
               onClick={() => {
                 setErrMessage(null);
               }}
-              className="font-semibold mx-1 cursor-pointer underline"
+              className="font-semibold mx-2 cursor-pointer underline"
             >
               Sign In
             </span>

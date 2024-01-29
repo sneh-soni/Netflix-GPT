@@ -47,7 +47,7 @@ const GptSearchBar = () => {
   };
 
   return (
-    <div className="flex justify-center w-screen">
+    <div className="flex justify-center w-screen pt-[40%] lg:pt-0">
       <input
         ref={searchText}
         type="text"

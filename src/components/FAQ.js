@@ -43,7 +43,7 @@ const FAQ = () => {
 
   return (
     <div className="flex flex-col gap-4 items-center py-20 w-screen bg-black text-white">
-      <div className="text-5xl font-extrabold w-3/4 flex justify-center my-5">
+      <div className="text-5xl font-bold w-3/4 flex justify-center my-5">
         Frequently Asked Questions
       </div>
       <Question

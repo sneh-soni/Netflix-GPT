@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard";
 const MovieList = ({ title, movies }) => {
   return (
     <div className="p-2 w-screen">
-      <h1 className="text-xl font-semibold pl-4 w-fit text-white hover:cursor-pointer hover:scale-105 transition-all ease-in-out duration-150">
+      <h1 className="text-2xl font-semibold pl-6 w-fit text-white hover:cursor-pointer">
         {title}
       </h1>
       {movies && (
