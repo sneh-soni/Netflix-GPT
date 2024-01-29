@@ -6,11 +6,10 @@ import openai from "../utils/openai";
 import { options } from "../utils/constants";
 import { addGptMovies } from "../utils/gptSlice";
 
-const GptSearchBar = () => {
+const GptSearchBar = ({ setLoading }) => {
   const langKey = useSelector((store) => store.config.language);
   const searchText = useRef(null);
   const dispatch = useDispatch();
-
   const getMovie = async (movie) => {
     const data = await fetch(
       "https://api.themoviedb.org/3/search/movie?query=" +
@@ -23,6 +22,7 @@ const GptSearchBar = () => {
   };
 
   const handleClick = async () => {
+    setLoading(true);
     const query =
       "Act as a movie recommendation system and just give me list of 20 movies for the query : " +
       searchText.current.value +
@@ -44,6 +44,7 @@ const GptSearchBar = () => {
     dispatch(
       addGptMovies({ gptMovies: movieResults, openaiResults: gptResult })
     );
+    setLoading(false);
   };
 
   return (
@@ -56,7 +57,9 @@ const GptSearchBar = () => {
       />
       <button
         className="m-2 py-1 px-4 bg-red-600 rounded-lg text-white"
-        onClick={handleClick}
+        onClick={() => {
+          if (searchText.current.value) handleClick();
+        }}
       >
         {lang[langKey].search}
       </button>
