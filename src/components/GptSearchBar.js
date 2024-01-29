@@ -26,7 +26,7 @@ const GptSearchBar = ({ setLoading }) => {
     const query =
       "Act as a movie recommendation system and just give me list of 20 movies for the query : " +
       searchText.current.value +
-      ",list must be comma seperated.For example results must be like : golmaal, uri, hanuman, ....";
+      ",list must be comma seperated.I don't want any word or sentence or number before after or between the list. For example your results must be like : [golmaal, uri, hanuman, ....] list of 20 movies";
 
     const completion = await openai.chat.completions.create({
       messages: [{ role: "system", content: query }],
@@ -34,10 +34,11 @@ const GptSearchBar = ({ setLoading }) => {
     });
 
     if (!completion.choices) {
-      console.log("no results for given query");
+      console.log("no results for given query from GPT");
       return;
     }
     const gptResult = completion.choices?.[0]?.message?.content.split(",");
+    console.log(gptResult);
     const promisesArray = gptResult.map((movie) => getMovie(movie));
     const tmdbResults = await Promise.all(promisesArray);
     const movieResults = tmdbResults.map((array) => array[0]);

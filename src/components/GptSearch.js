@@ -18,8 +18,8 @@ const GptSearch = () => {
         {!loading ? (
           <GptMovies />
         ) : (
-          <div className="text-white text-5xl animate-pulse text-center pt-24">
-            Loading...
+          <div className="bg-black opacity-90 my-4 rounded-md font-bold text-6xl  text-center py-36">
+            <p className="animate-pulse text-red-600">Loading...</p>
           </div>
         )}
       </div>
