@@ -9,14 +9,14 @@ const MainContainer = () => {
 
   if (!movies) return;
 
-  const { original_title, overview, id } = movies[0];
+  const { title, imdb_id, year } = movies[0];
   return (
-    <div className="w-screen relative">
-      <VideoTitle title={original_title} overview={overview} />
-      <BackgroundVideo movieId={id} />
-      <div className="absolute -bottom-6 lg:-bottom-12">
+    <div className="w-screen">
+      <VideoTitle title={title} overview={year} />
+      {/* <BackgroundVideo movieId={imdb_id} />
+      <div className="">
         <MovieList title={"Now Playing"} movies={movies} />
-      </div>
+      </div> */}
     </div>
   );
 };

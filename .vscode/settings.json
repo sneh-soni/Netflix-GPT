@@ -1,10 +1,24 @@
 {
-  "audioCues.lineHasError": "off",
   "debug.javascript.breakOnConditionalError": true,
-  "audioCues.lineHasInlineSuggestion": "off",
-  "audioCues.notebookCellFailed": "off",
-  "audioCues.onDebugBreak": "off",
-  "audioCues.taskFailed": "off",
-  "audioCues.terminalCommandFailed": "off",
-  "audioCues.terminalQuickFix": "off"
+  "accessibility.signals.lineHasError": {
+    "sound": "off"
+  },
+  "accessibility.signals.lineHasInlineSuggestion": {
+    "sound": "off"
+  },
+  "accessibility.signals.terminalQuickFix": {
+    "sound": "off"
+  },
+  "accessibility.signals.onDebugBreak": {
+    "sound": "off"
+  },
+  "accessibility.signals.taskFailed": {
+    "sound": "off"
+  },
+  "accessibility.signals.terminalCommandFailed": {
+    "sound": "off"
+  },
+  "accessibility.signals.notebookCellFailed": {
+    "sound": "off"
+  }
 }

@@ -3,8 +3,16 @@ import lang from "../utils/languages";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 import openai from "../utils/openai";
-import { options } from "../utils/constants";
 import { addGptMovies } from "../utils/gptSlice";
+
+const options = {
+  method: "GET",
+  headers: {
+    Type: "get-movies-by-title",
+    "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+    "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com",
+  },
+};
 
 const GptSearchBar = ({ setLoading }) => {
   const langKey = useSelector((store) => store.config.language);
@@ -12,13 +20,11 @@ const GptSearchBar = ({ setLoading }) => {
   const dispatch = useDispatch();
   const getMovie = async (movie) => {
     const data = await fetch(
-      "https://api.themoviedb.org/3/search/movie?query=" +
-        movie +
-        "&include_adult=false&language=en-US&page=1",
+      "https://movies-tv-shows-database.p.rapidapi.com/?title=" + movie,
       options
     );
     const json = await data.json();
-    return json.results;
+    return json.movie_results;
   };
 
   const handleClick = async () => {
@@ -26,7 +32,7 @@ const GptSearchBar = ({ setLoading }) => {
     const query =
       "Act as a movie recommendation system and just give me list of 20 movies for the query : " +
       searchText.current.value +
-      ",list must be comma seperated.I don't want any word or sentence or number before after or between the list. For example your results must be like : [golmaal, uri, hanuman, ....] list of 20 movies";
+      ",list must be comma seperated and no starting or closing brackets.I don't want any word or sentence or number before after or between the list. For example your results must be like : [golmaal, uri, hanuman, ....] list of 20 movies";
 
     const completion = await openai.chat.completions.create({
       messages: [{ role: "system", content: query }],
@@ -38,10 +44,11 @@ const GptSearchBar = ({ setLoading }) => {
       return;
     }
     const gptResult = completion.choices?.[0]?.message?.content.split(",");
-    console.log(gptResult);
     const promisesArray = gptResult.map((movie) => getMovie(movie));
     const tmdbResults = await Promise.all(promisesArray);
-    const movieResults = tmdbResults.map((array) => array[0]);
+    const movieResults = tmdbResults
+      .filter((array) => array && array.length > 0)
+      .map((array) => array[0]);
     dispatch(
       addGptMovies({ gptMovies: movieResults, openaiResults: gptResult })
     );

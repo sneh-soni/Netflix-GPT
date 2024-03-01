@@ -1,7 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { options } from "../utils/constants";
 import { addTopRated } from "../utils/movieSlice";
+
+const options = {
+  method: "GET",
+  headers: {
+    Type: "get-trending-movies",
+    "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+    "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com",
+  },
+};
 
 const useTopRated = () => {
   const dispatch = useDispatch();
@@ -10,11 +18,11 @@ const useTopRated = () => {
   useEffect(() => {
     const getTopRatedMovies = async () => {
       const data = await fetch(
-        "https://api.themoviedb.org/3/movie/top_rated?page=1",
+        "https://movies-tv-shows-database.p.rapidapi.com/?page=1",
         options
       );
       const json = await data.json();
-      dispatch(addTopRated(json.results));
+      dispatch(addTopRated(json.movie_results));
     };
     if (!topRated) getTopRatedMovies();
   }, []);

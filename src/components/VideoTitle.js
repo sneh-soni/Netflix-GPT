@@ -2,9 +2,9 @@ import React from "react";
 
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="pt-[10%] top-[20%] flex justify-between lg:block lg:top-0 w-screen lg:aspect-video px-8 lg:px-16 absolute text-white lg:bg-gradient-to-r lg:from-black">
+    <div className="bg-black flex justify-between lg:block lg:top-40 w-screen lg:aspect-video px-8 lg:px-16 absolute text-white lg:bg-gradient-to-r lg:from-black">
       <div className="text-xl lg:text-5xl font-bold w-1/3 break-words">
-        {title}
+        {title} <span className="text-base font-normal">({overview})</span>
       </div>
 
       <div className="flex gap-2 w-1/3 my-6">
