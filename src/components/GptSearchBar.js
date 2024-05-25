@@ -3,16 +3,8 @@ import lang from "../utils/languages";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 import openai from "../utils/openai";
+import { options } from "../utils/constants";
 import { addGptMovies } from "../utils/gptSlice";
-
-const options = {
-  method: "GET",
-  headers: {
-    Type: "get-movies-by-title",
-    "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
-    "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com",
-  },
-};
 
 const GptSearchBar = ({ setLoading }) => {
   const langKey = useSelector((store) => store.config.language);
@@ -20,11 +12,13 @@ const GptSearchBar = ({ setLoading }) => {
   const dispatch = useDispatch();
   const getMovie = async (movie) => {
     const data = await fetch(
-      "https://movies-tv-shows-database.p.rapidapi.com/?title=" + movie,
+      "https://api.themoviedb.org/3/search/movie?query=" +
+        movie +
+        "&include_adult=false&language=en-US&page=1",
       options
     );
     const json = await data.json();
-    return json.movie_results;
+    return json.results;
   };
 
   const handleClick = async () => {
@@ -46,9 +40,7 @@ const GptSearchBar = ({ setLoading }) => {
     const gptResult = completion.choices?.[0]?.message?.content.split(",");
     const promisesArray = gptResult.map((movie) => getMovie(movie));
     const tmdbResults = await Promise.all(promisesArray);
-    const movieResults = tmdbResults
-      .filter((array) => array && array.length > 0)
-      .map((array) => array[0]);
+    const movieResults = tmdbResults.map((array) => array[0]);
     dispatch(
       addGptMovies({ gptMovies: movieResults, openaiResults: gptResult })
     );

@@ -4,6 +4,16 @@ export const logo =
 export const user_profile =
   "https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp";
 
+export const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer " +
+      "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MzA4N2ZmNWQwYjk5YWQ1NGY2NWI5Y2MyZDQ1NTcyZCIsInN1YiI6IjY1YTI3NzZiODU4Njc4MDEyNTViOTExZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bDSTeRMKZ7eRaU-z7ZIGmSx7yw9q4DM420P7n1BN5V0",
+  },
+};
+
 export const IMG_CDN = "https://image.tmdb.org/t/p/w300";
 
 export const BG_URL =
@@ -21,4 +31,4 @@ export const Languages = [
 ];
 
 export const OPENAI_KEY =
-  "sk-proj-aZeSMwuLS7kS0tF0rWSNT3BlbkFJsr1NsX43VaCYZ5vi1eBT";
+  "sk-proj-rJBeCd6WeVydqdRZ8CqJT3BlbkFJx6PeeUQCZODqe7zkisZ0";
