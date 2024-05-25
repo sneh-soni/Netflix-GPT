@@ -5,7 +5,7 @@ const Question = ({ Ques, Answer, isVisible, setIsVisible }) => {
   return (
     <>
       <button
-        className="bg-stone-700 w-3/4 h-20 flex justify-between items-center px-5 text-2xl font-semibold hover:bg-stone-600"
+        className="bg-stone-700 w-3/4 py-6 text-start flex justify-between items-center px-4 text-lg md:text-2xl hover:bg-stone-600"
         onClick={() => {
           isVisible ? setIsVisible(false) : setIsVisible(true);
         }}
@@ -30,7 +30,9 @@ const Question = ({ Ques, Answer, isVisible, setIsVisible }) => {
         </svg>
       </button>
       {isVisible ? (
-        <div className="bg-stone-700 w-3/4 text-2xl p-5">{Answer}</div>
+        <div className="bg-stone-700 w-3/4 text-lg md:text-2xl px-4 py-6">
+          {Answer}
+        </div>
       ) : (
         <></>
       )}
@@ -42,8 +44,8 @@ const FAQ = () => {
   const [visible, setVisible] = useState("");
 
   return (
-    <div className="flex flex-col gap-4 items-center py-20 w-screen bg-black text-white">
-      <div className="text-5xl font-bold w-3/4 flex justify-center my-5">
+    <div className="flex flex-col gap-4 items-center py-12 w-full bg-black text-white">
+      <div className="text-3xl md:text-5xl font-bold w-3/4 flex justify-center my-4">
         Frequently Asked Questions
       </div>
       <Question
@@ -106,7 +108,7 @@ const FAQ = () => {
           isVisible ? setVisible("06") : setVisible("");
         }}
       />
-      <button className="flex mt-5 gap-3 items-center text-2xl font-semibold bg-red-600 hover:bg-red-700 px-5 py-3 rounded-md">
+      <button className="flex mt-4 gap-2 items-center text-lg md:text-2xl font-semibold bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md">
         Finish Sign Up
         <svg
           width="30"

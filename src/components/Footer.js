@@ -5,12 +5,12 @@ const Footer = () => {
   const [status, setStatus] = useState(false);
   const [language, setLanguage] = useState("English");
   return (
-    <div className="bg-black flex justify-center w-screen text-white items-center py-10">
-      <div className="w-3/4 flex flex-col items-center">
-        <p className="text-lg text-start w-full">
+    <div className="bg-black flex justify-center w-full text-white items-center py-12">
+      <div className="w-4/5 flex flex-col items-center">
+        <p className="text-xs md:text-base text-start w-full">
           Questions? Call 000-800-919-1694
         </p>
-        <div className="grid grid-cols-4 gap-4 w-full my-4">
+        <div className="grid grid-cols-4 gap-4 text-xs md:text-base w-full my-6">
           <p className="underline">FAQ</p>
           <p className="underline">Help Centre</p>
           <p className="underline">Account</p>
@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="w-full flex  my-4 justify-start">
           <button
             type="button"
-            class="flex gap-3 items-center px-6 border-4 border-white py-1 w-36 bg-black/50 rounded-md font-medium text-white absolute"
+            class="flex gap-2 items-center px-4 border-4 border-white py-1 w-fit bg-black/50 rounded-md font-medium text-white absolute"
             onClick={() => {
               status ? setStatus(false) : setStatus(true);
             }}
@@ -72,9 +72,8 @@ const Footer = () => {
             </svg>
           </button>
           {status ? (
-            <div class="w-36 relative top-8 bg-white">
+            <div class="w-32 relative top-10 bg-white">
               <div
-                class="py-1"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="options-menu"
@@ -84,7 +83,7 @@ const Footer = () => {
                     setLanguage("English");
                     setStatus(false);
                   }}
-                  class=" h-1/2 w-full block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+                  class=" h-1/2 w-full block px-2 py-1 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
                   role="menuitem"
                 >
                   English
@@ -94,7 +93,7 @@ const Footer = () => {
                     setLanguage("Hindi");
                     setStatus(false);
                   }}
-                  class=" h-1/2  block px-4 w-full py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
+                  class=" h-1/2 block px-2 w-full py-1 text-sm text-gray-700 hover:bg-blue-600 hover:text-white"
                   role="menuitem"
                 >
                   Hindi

@@ -7,23 +7,25 @@ import { BG_URL, logo } from "../utils/constants";
 const Home = () => {
   return (
     <div className="flex flex-col items-center overflow-hidden relative">
-      <div className="absolute flex justify-start w-full bg-gradient-to-b from-black lg:pl-28 ">
-        <img src={logo} alt="logo" className="h-24 pt-4" />
+      <div className="absolute flex justify-center md:justify-start w-full bg-gradient-to-b from-black px-10">
+        <img src={logo} alt="logo" className="h-20" />
       </div>
       <img
         src={BG_URL}
         alt="background"
         className="w-screen h-screen object-cover"
       />
-      <div className="flex flex-col gap-4 absolute top-56 w-3/4 lg:my-10 text-white bg-black bg-opacity-80 p-4 rounded-lg">
-        <div className="text-center text-2xl">Welcome back!</div>
-        <div className="text-5xl text-center font-bold">
+      <div className="flex flex-col gap-4 absolute top-[5%] w-4/5 max-w-2xl text-white bg-black bg-opacity-80 p-4 rounded-lg">
+        <div className="text-center text-lg md:text-2xl">Welcome back!</div>
+        <div className="text-3xl md:text-5xl text-center font-bold">
           Enjoy big movies, hit series and more from ₹149.
         </div>
-        <div className="text-center text-2xl">Join today. Cancel anytime.</div>
+        <div className="text-center text-lg md:text-2xl">
+          Join today. Cancel anytime.
+        </div>
         <div className="flex justify-center">
           <Link to={"/login"}>
-            <button className="flex gap-3 items-center text-2xl font-semibold bg-red-600 hover:bg-red-700 px-5 py-3 rounded-md">
+            <button className="flex gap-2 items-center text-lg md:text-2xl font-semibold bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md">
               Finish Sign Up
               <svg
                 width="30"

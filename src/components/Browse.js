@@ -18,7 +18,7 @@ const Browse = () => {
   useUpcomingMovies();
 
   return (
-    <div className="overflow-hidden">
+    <>
       <Header />
       {showGPT ? (
         <GptSearch />
@@ -28,7 +28,7 @@ const Browse = () => {
           <SecondaryContainer />
         </>
       )}
-    </div>
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import { BG_URL } from "../utils/constants";
 
 const Login = () => {
   return (
-    <div className="h-screen w-screen ">
+    <div className="min-w-full">
       <Header />
       <img
         src={BG_URL}

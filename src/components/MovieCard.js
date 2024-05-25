@@ -26,13 +26,19 @@ const MovieCard = ({ imdb_id, original_title }) => {
   if (poster === "") return null;
 
   return (
-    <div className="flex flex-col hover:scale-125 transition-all ease-in-out hover:cursor-pointer">
-      <div className="w-36 h-52 flex justify-center items-center">
-        <div className="w-28 h-40">
-          <img alt="movie card" src={poster} className="h-full w-full" />
+    <div className="flex flex-col hover:cursor-pointer">
+      <div className="w-28 h-40 md:w-36 md:h-48 flex justify-center items-center hover:scale-125 transition-all ease-in-out">
+        <div className="w-20 h-32 md:w-28 md:h-40">
+          <img
+            alt="movie card"
+            src={IMG_CDN + poster_path}
+            className="h-full w-full object-cover"
+          />
         </div>
       </div>
-      <div className="text-white text-center">{original_title}</div>
+      <div className="text-white text-center text-xs md:text-sm">
+        {original_title}
+      </div>
     </div>
   );
 };

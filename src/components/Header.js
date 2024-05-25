@@ -37,16 +37,16 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute z-40 lg:px-28 h-1/6 w-screen flex flex-col lg:flex-row justify-between items-center bg-gradient-to-b from-black">
-      <div className="h-4/5">
+    <div className="absolute z-40 px-4 h-1/6 w-full flex flex-col md:flex-row justify-between items-center bg-gradient-to-b from-black">
+      <div className="h-2/3 sm:h-4/5">
         <Link to={"/"}>
           <img src={logo} alt="logo" className="h-full" />
         </Link>
       </div>
-
-      <div className="flex gap-4 lg:gap-8">
+      <div className="flex flex-grow"></div>
+      <div className="flex gap-4 flex-col sm:flex-row w-11/12 sm:w-fit">
         {showGPT && (
-          <div className="flex items-center">
+          <div className="flex items-center justify-center">
             <select
               className="px-4 py-1 rounded-lg bg-black bg-opacity-50 mx-2 text-white border border-white"
               onChange={(e) => {
@@ -63,7 +63,7 @@ const Header = () => {
         )}
 
         {user && (
-          <>
+          <div className="flex items-center justify-center gap-4">
             <button
               onClick={() => {
                 signOut(auth)
@@ -72,28 +72,26 @@ const Header = () => {
                     navigate("/error");
                   });
               }}
-              className="px-3 py-2 bg-red-600 text-white font-bold rounded-md text-sm hover:bg-red-700"
+              className="px-2 py-1 bg-red-600 text-white font-semibold rounded-md text-sm hover:bg-red-700"
             >
               Sign Out
             </button>
 
-            <div className="flex gap-4">
-              <button
-                className="px-4 py-2 bg-red-600 hover:bg-red-800 text-white font-semibold rounded-xl"
-                onClick={() => {
-                  dispatch(toggleGPT());
-                }}
-              >
-                {showGPT ? "Browse" : "Gpt Search"}
-              </button>
+            <button
+              className="px-4 py-1 bg-red-600 hover:bg-red-800 text-white font-semibold rounded-md text-sm"
+              onClick={() => {
+                dispatch(toggleGPT());
+              }}
+            >
+              {showGPT ? "Browse" : "Gpt Search"}
+            </button>
 
-              <img
-                src={user.photoURL}
-                alt="profile photo"
-                className="h-10 w-10 rounded-full"
-              />
-            </div>
-          </>
+            <img
+              src={user.photoURL}
+              alt="profile photo"
+              className="h-8 w-8 rounded-full"
+            />
+          </div>
         )}
       </div>
     </div>

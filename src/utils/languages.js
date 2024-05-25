@@ -1,11 +1,11 @@
 const lang = {
   english: {
     search: "search",
-    placeholder: "search recommendatations",
+    placeholder: "search recommendations..",
   },
   hindi: {
     search: "खोज",
-    placeholder: "खोज अनुशंसाएँ",
+    placeholder: "खोज अनुशंसाएँ..",
   },
 };
 

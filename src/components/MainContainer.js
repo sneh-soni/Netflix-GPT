@@ -6,17 +6,12 @@ import MovieList from "./MovieList";
 
 const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlaying);
-
   if (!movies) return;
-
-  const { title, imdb_id, year } = movies[0];
+  const { original_title, overview, id } = movies[0];
   return (
-    <div className="w-screen">
-      <VideoTitle title={title} overview={year} />
-      {/* <BackgroundVideo movieId={imdb_id} />
-      <div className="">
-        <MovieList title={"Now Playing"} movies={movies} />
-      </div> */}
+    <div className="w-full h-screen relative">
+      <VideoTitle title={original_title} overview={overview} />
+      <BackgroundVideo movieId={id} />
     </div>
   );
 };

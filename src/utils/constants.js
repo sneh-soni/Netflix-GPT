@@ -20,4 +20,5 @@ export const Languages = [
   },
 ];
 
-export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
+export const OPENAI_KEY =
+  "sk-proj-aZeSMwuLS7kS0tF0rWSNT3BlbkFJsr1NsX43VaCYZ5vi1eBT";
