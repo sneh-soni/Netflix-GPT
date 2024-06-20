@@ -10,8 +10,9 @@
     <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" alt="redux-toolkit" />
     <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="javascript" />
   </div>
-
-  <h3 align="center">Netflix with Gpt</h3>
+<a href="https://netflix-gpt-seven-black.vercel.app/" target="_blank">
+  <h3 align="center">Netflix | GPT</h3>
+</a>
 </div>
 
 ## 📋 <a name="table">Table of Contents</a>
@@ -19,7 +20,7 @@
 1. 🚀 [Introduction](#introduction)
 2. ⚙️ [Tech Stack](#tech-stack)
 3. 🔋  [Features](#features)
-4. 🔗 [Links](#links)
+4. 🔗 [Deployement Link](#links)
 
 ## <a name="introduction">🚀 Introduction</a>
 
@@ -51,8 +52,8 @@ Built with React for seamless user experiences, Animatable for captivating anima
 
 and many more, including code architecture and reusability 
 
-## <a name="links">🔗 Links</a>
+## <a name="links">🔗 Deployement Link</a>
 
-Deployed vercel link - [click here](https://netflix-gpt-seven-black.vercel.app)
+Deployed vercel link - [here](https://netflix-gpt-seven-black.vercel.app)
 
 #
