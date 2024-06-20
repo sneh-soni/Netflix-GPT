@@ -10,9 +10,9 @@
     <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" alt="redux-toolkit" />
     <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="javascript" />
   </div>
-<a href="https://netflix-gpt-seven-black.vercel.app/" target="_blank">
+
   <h3 align="center">Netflix | GPT</h3>
-</a>
+
 </div>
 
 ## 📋 <a name="table">Table of Contents</a>
